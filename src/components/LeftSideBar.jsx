@@ -17,7 +17,7 @@ function LeftSideBar() {
   ];
 
   return (
-    <div className="min-h-full min-w-64 flex flex-col items-center gap-2 shadow-2xl">
+    <div className=" max-w-64 flex flex-col items-center gap-2 shadow-2xl">
       <div className="mt-4 mb-8">
         <img src={logo} alt="Logo" className="w-14 h-10" />
       </div>

@@ -3,17 +3,19 @@ import LeftSideBar from "../components/LeftSideBar";
 import Home from "../components/pages/Home";
 import Profile from "../components/pages/Profile/";
 import { Routes, Route } from "react-router";
+import IndvidualTopic from "../components/pages/IndvidualTopic";
 
 function Layout() {
   return (
     <>
-      <div className="flex h-[100vh] w-full">
+      <div className="flex min-h-screen">
         <LeftSideBar />
         <div className="w-full h-full">
           <Routes>
             <Route path="/" element={<Home />} />
 
             <Route path="profile" element={<Profile />} />
+            <Route path="/:topic" element={<IndvidualTopic />} />
           </Routes>
         </div>
       </div>

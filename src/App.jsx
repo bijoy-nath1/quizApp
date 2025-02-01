@@ -1,14 +1,13 @@
-import Layout from './layout/Layout'
+import Layout from "./layout/Layout";
 
-import './App.css'
+import "./App.css";
 
 function App() {
-  
-
   return (
-  <Layout/>
-  
-  )
+    <div>
+      <Layout />
+    </div>
+  );
 }
 
-export default App
+export default App;
