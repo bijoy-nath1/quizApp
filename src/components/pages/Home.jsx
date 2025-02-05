@@ -4,14 +4,23 @@ import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { Link } from "react-router";
 
 function Home() {
-  const { state, changeCategory, changeTopic } = useContext(MyContext);
+  const { updateState } = useContext(MyContext);
   const [TradCategories, setTradCategories] = useState({});
   useEffect(() => {
-    setTradCategories(state.TradDataCategories);
-    console.log(TradCategories.trivia_categories);
+    const fetchTraditionalDataCategories = async () => {
+      try {
+        const response = await fetch("https://opentdb.com/api_category.php");
+        const data = await response.json();
+        setTradCategories(data.trivia_categories);
+      } catch (error) {
+        console.error("Error fetching traditional categories:", error);
+      }
+    };
+    fetchTraditionalDataCategories();
   }, []);
+  const formattedName = (name) => name.replace(/\s+/g, "");
 
-  const techTopics = ["Linux", " DevOps", "Docker"];
+  const techTopics = ["Linux", "DevOps", "Docker"];
 
   return (
     <div className=" w-full h-full ">
@@ -31,12 +40,12 @@ function Home() {
                 {" "}
                 <h1 className=" font-semibold text-black">{topic}</h1>
               </div>
-              <Link to={`/${topic.name}-questions`}>
+              <Link to={`/${topic}`}>
                 <IoIosArrowDroprightCircle
                   size={40}
                   color="black"
                   onClick={() => {
-                    changeTopic(topic);
+                    updateState("topic", topic);
                   }}
                   className=" cursor-pointer"
                 />
@@ -51,9 +60,8 @@ function Home() {
         </h1>
       </div>
       <div className="  grid grid-cols-4 gap-3 p-5">
-        {TradCategories.trivia_categories &&
-        TradCategories.trivia_categories.length > 0 ? (
-          TradCategories.trivia_categories.map((category) => {
+        {TradCategories && TradCategories.length > 0 ? (
+          TradCategories.map((category) => {
             return (
               <div
                 key={category.id}
@@ -63,12 +71,12 @@ function Home() {
                   {" "}
                   <h1 className=" font-semibold text-black">{category.name}</h1>
                 </div>
-                <Link to={`/${category.name}-questions`}>
+                <Link to={`/${formattedName(category.name)}/${category.id}`}>
                   <IoIosArrowDroprightCircle
                     size={40}
                     color="black"
                     onClick={() => {
-                      changeCategory(category.id);
+                      updateState("category", category.id);
                     }}
                     className=" cursor-pointer"
                   />

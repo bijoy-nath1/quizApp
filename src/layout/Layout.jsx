@@ -3,7 +3,7 @@ import LeftSideBar from "../components/LeftSideBar";
 import Home from "../components/pages/Home";
 import Profile from "../components/pages/Profile/";
 import { Routes, Route } from "react-router";
-import IndvidualTopic from "../components/pages/IndvidualTopic";
+import IndividualTopic from "../components/pages/IndvidualTopic";
 
 function Layout() {
   return (
@@ -15,7 +15,9 @@ function Layout() {
             <Route path="/" element={<Home />} />
 
             <Route path="profile" element={<Profile />} />
-            <Route path="/:topic" element={<IndvidualTopic />} />
+            <Route path="/:name" element={<IndividualTopic />} />
+
+            <Route path="/:name/:id" element={<IndividualTopic />} />
           </Routes>
         </div>
       </div>
