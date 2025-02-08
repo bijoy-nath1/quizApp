@@ -26,7 +26,7 @@ function LeftSideBar() {
           </Link>
         </div>
         <div
-          className=" min-w-56 rounded-lg flex items-center p-2 gap-2 border border-violet-900"
+          className=" min-w-56 rounded-lg flex items-center p-2 gap-2 border border-violet-900 cursor-pointer"
           onClick={() => setRotated(!rotated)}
         >
           <span className="text-xl">
