@@ -1,7 +1,6 @@
 import React from "react";
 import LeftSideBar from "../components/LeftSideBar";
 import Home from "../components/pages/Home";
-import Profile from "../components/pages/Profile/";
 import { Routes, Route } from "react-router";
 import IndividualTopic from "../components/pages/IndvidualTopic";
 
@@ -14,7 +13,6 @@ function Layout() {
           <Routes>
             <Route path="/" element={<Home />} />
 
-            <Route path="profile" element={<Profile />} />
             <Route path="/:name" element={<IndividualTopic />} />
 
             <Route path="/:name/:id" element={<IndividualTopic />} />
