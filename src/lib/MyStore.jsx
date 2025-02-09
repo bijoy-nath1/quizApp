@@ -7,7 +7,7 @@ const MyProvider = ({ children }) => {
   const [state, setState] = useState({
     correctAns: 0,
     testsCompleted: 0,
-    totalScore: 0,
+
     Accuracy: 0,
     totalCoins: 0,
   });

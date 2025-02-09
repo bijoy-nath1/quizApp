@@ -47,7 +47,7 @@ function Home() {
                   onClick={() => {
                     updateState("topic", topic);
                   }}
-                  className=" cursor-pointer"
+                  className=" cursor-pointer transition-all duration-300 ease-in-out hover:shadow-neon hover:border-blue-500 hover:scale-97"
                 />
               </Link>
             </div>
@@ -78,7 +78,7 @@ function Home() {
                     onClick={() => {
                       updateState("category", category.id);
                     }}
-                    className=" cursor-pointer"
+                    className=" cursor-pointer transition-all duration-300 ease-in-out hover:shadow-neon hover:border-blue-500 hover:scale-97"
                   />
                 </Link>
               </div>
