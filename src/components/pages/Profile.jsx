@@ -7,9 +7,12 @@ import { FaTrophy } from "react-icons/fa6";
 import { CiSettings } from "react-icons/ci";
 import { CiLogout } from "react-icons/ci";
 import { RiCoinsLine } from "react-icons/ri";
+import { MyContext } from "../../lib/MyStore";
+import { useContext } from "react";
 
 function Profile({ isBlock }) {
-  const score = 2;
+  const { state } = useContext(MyContext);
+  const score = 7;
 
   return (
     <div
@@ -36,25 +39,25 @@ function Profile({ isBlock }) {
         <div className="flex items-center gap-2">
           <GrScorecard size={23} color="blue" />
           <span className="text-blue-500 font-semibold font-sans ">
-            {score}
+            {state.Accuracy}%
           </span>
         </div>
         <div className="flex items-center gap-2">
           <TiInputChecked size={35} color="green" />
           <span className="text-green-800 font-semibold font-sans">
-            {score}
+            {state.correctAns}
           </span>
         </div>
         <div className="flex items-center gap-2">
           <FaTrophy size={23} color="black" />
           <span className="text-cyan-800   font-semibold font-sans">
-            {score}
+            {state.testsCompleted}
           </span>
         </div>
         <div className="flex items-center gap-2">
           <RiCoinsLine size={25} color="orange" />
           <span className="text-orange-400 font-semibold font-sans">
-            {score}
+            {state.totalCoins}
           </span>
         </div>
       </div>
