@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../lib/MyStore";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { Link } from "react-router";
+import { GiHamburgerMenu } from "react-icons/gi";
+
 
 function Home() {
-  const { updateState } = useContext(MyContext);
+  const { updateState ,state} = useContext(MyContext);
   const [TradCategories, setTradCategories] = useState({});
   useEffect(() => {
     const fetchTraditionalDataCategories = async () => {
@@ -22,19 +24,26 @@ function Home() {
 
   const techTopics = ["Linux", "DevOps", "Docker"];
 
+
+
   return (
     <div className=" w-full h-full ">
+      <div className=" p-10 lg:hidden">
+        <GiHamburgerMenu color="black" size={30} onClick={()=>{
+          updateState('isShown',!state.isShown)
+        }}/>
+      </div>
       <div className="min-h-40 w-full flex justify-start items-end p-10">
         <h1 className="text-black font-semibold text-2xl">
           Technical Test Series
         </h1>
       </div>
-      <div className="  grid grid-cols-4 gap-3 p-5">
+      <div className=" flex flex-row p-5 gap-4 overflow-auto ">
         {techTopics.map((topic) => {
           return (
             <div
               key={topic}
-              className="bg-gradient-to-b from-violet-200 to-gray-100 rounded-3xl shadow-lg border border-gray-300   max-w-70 min-h-30  flex justify-between items-center pr-3 transition-all duration-300 ease-in-out hover:shadow-neon hover:border-blue-500 hover:scale-105"
+              className=" w-64 h-32 bg-gradient-to-b from-violet-200 to-gray-100 rounded-3xl shadow-lg border border-gray-300   flex justify-between items-center pr-3 transition-all duration-300 ease-in-out hover:shadow-neon hover:border-blue-500 hover:scale-105"
             >
               <div className="flex flex-col justify-start  min-h-full max-w-10 pl-5 pt-5">
                 {" "}
@@ -59,7 +68,7 @@ function Home() {
           Traditional Test Series
         </h1>
       </div>
-      <div className="  grid grid-cols-4 gap-3 p-5">
+      <div className=" gap-3 p-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
         {TradCategories && TradCategories.length > 0 ? (
           TradCategories.map((category) => {
             return (

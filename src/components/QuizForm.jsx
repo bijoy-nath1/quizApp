@@ -65,7 +65,7 @@ function QuizForm({ data }) {
 
   return (
     <div className="h-[100vh] max-w-full flex justify-center items-center">
-      <div className="h-[80%] w-[60%] flex-col border rounded-3xl p-12 shadow-2xl">
+      <div className=" w-96 m-8 flex-col border rounded-3xl p-12 shadow-2xl sm:w-[80%] md:w-[80%] lg:w-[50%] xl:w-[50%] 2xl:w-[50%] bg-white">
         <div className="h-[10%] w-full flex justify-start items-end pb-8">
           <h1 className="text-violet-900 font-medium text-lg">
             {index + 1}.{" "}
@@ -96,11 +96,11 @@ function QuizForm({ data }) {
                   return (
                     <div
                       key={key}
-                      className={`w-full h-[10%] border border-black rounded-4xl flex justify-start items-center gap-3 pl-4 shadow-sm cursor-pointer transition-all duration-300 ease-in-out hover:shadow-neon hover:bg-violet-300 hover:scale-95 hover:border-none ${bgColor}`}
+                      className={` w-full h-14 border border-black rounded-4xl flex justify-start items-center gap-3 pl-4 shadow-sm cursor-pointer transition-all duration-300 ease-in-out hover:shadow-neon hover:bg-violet-300 hover:scale-95 hover:border-none ${bgColor}`}
                       onClick={() => checkOption(key)}
                     >
                       <FaRegCircle color="black" />
-                      <h1 className="text-black w-full h-full flex items-center hover:text-white font-bold">
+                      <h1 className="text-black  flex items-center hover:text-white font-bold">
                         {answer}
                       </h1>
                     </div>
@@ -141,7 +141,7 @@ function QuizForm({ data }) {
                   return (
                     <div
                       key={i}
-                      className={`w-full h-[10%] border border-black rounded-4xl flex justify-start items-center gap-3 pl-4 shadow-sm cursor-pointer transition-all duration-300 ease-in-out hover:shadow-neon hover:bg-violet-300 hover:scale-95 hover:border-none ${bgColor}`}
+                      className={`w-full h-14 border border-black rounded-4xl flex justify-start items-center gap-3 pl-4 shadow-sm cursor-pointer transition-all duration-300 ease-in-out hover:shadow-neon hover:bg-violet-300 hover:scale-95 hover:border-none ${bgColor}`}
                       onClick={() => {
                         setSelectedOption(answer);
                         if (isCorrect) {

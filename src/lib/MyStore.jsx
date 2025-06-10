@@ -10,6 +10,7 @@ const MyProvider = ({ children }) => {
 
     Accuracy: 0,
     totalCoins: 0,
+    isShown:false,
   });
 
   const updateState = (key, value) => {

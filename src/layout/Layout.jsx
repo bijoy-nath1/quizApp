@@ -9,7 +9,7 @@ function Layout() {
     <>
       <div className="flex min-h-screen">
         <LeftSideBar />
-        <div className="w-full h-full">
+        <div className="w-full h-full ">
           <Routes>
             <Route path="/" element={<Home />} />
 
