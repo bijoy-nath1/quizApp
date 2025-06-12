@@ -26,6 +26,7 @@ function IndividualTopic() {
         }
 
         const info = await response.json();
+        console.log("Fetched data:", info);
         setData(name && id ? info.results : info);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -35,10 +36,7 @@ function IndividualTopic() {
     fetchData();
   }, [name, id, ApiKey]);
 
-  // Debugging
-  useEffect(() => {
-    console.log("Updated Data:", data);
-  }, [data]);
+
 
   return (
     <div>{data.length > 0 ? <QuizForm data={data} /> : <p>Loading...</p>}</div>

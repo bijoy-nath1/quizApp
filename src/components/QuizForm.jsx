@@ -96,11 +96,11 @@ function QuizForm({ data }) {
                   return (
                     <div
                       key={key}
-                      className={` w-full h-14 border border-black rounded-4xl flex justify-start items-center gap-3 pl-4 shadow-sm cursor-pointer transition-all duration-300 ease-in-out hover:shadow-neon hover:bg-violet-300 hover:scale-95 hover:border-none ${bgColor}`}
+                      className={` w-full h-14 border border-black rounded-4xl flex justify-start items-center gap-3 pl-4 shadow-sm cursor-pointer transition-all duration-300 ease-in-out hover:shadow-neon hover:bg-violet-300 hover:scale-95 hover:border-none ${bgColor} overflow-hidden text-sm `}
                       onClick={() => checkOption(key)}
                     >
                       <FaRegCircle color="black" />
-                      <h1 className="text-black  flex items-center hover:text-white font-bold">
+                      <h1 className="text-black  flex items-center hover:text-white font-bold truncate">
                         {answer}
                       </h1>
                     </div>
